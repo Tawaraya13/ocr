@@ -11,6 +11,7 @@ Quick setup
    pip install -r requirements.txt
 3. Run the GUI:
    python mainwindow.py
+   
 Alternatively install through github
 pip install git+https://github.com/Tawaraya13/ocr.git
 

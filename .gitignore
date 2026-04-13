@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info
+mainwindow.spec
+
+# PyInstaller
+*.spec
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project generated files
+savedImages/
+*.log
+
+# Ignore installed packages
+pip-wheel-metadata/
+
+# Coverage
+htmlcov/
+.coverage
+
+# Byte-compiled
+*.pyc

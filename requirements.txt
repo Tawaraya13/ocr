@@ -1,0 +1,9 @@
+deep_translator==1.11.4
+furigana==0.2
+manga_ocr==0.1.14
+ocr==0.1.0
+Pillow==12.2.0
+pyside6==6.11.0
+pyside6_addons==6.11.0
+pyside6_essentials==6.11.0
+pytesseract==0.3.13

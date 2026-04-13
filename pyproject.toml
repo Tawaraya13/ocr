@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Manga OCR GUI NAME TO BE CHANGED"
+version = "0.1.0"
+description = "Simple PySide6 GUI for capturing screenshots and running OCR/translation"
+readme = "README.md"
+authors = [
+  { name = "Pandu Rama Satria Putranata" }
+]
+requires-python = ">=3.11"
+dependencies = [
+  "deep_translator==1.11.4",
+  "furigana==0.2",
+  "manga_ocr==0.1.14",
+  "ocr==0.1.0",
+  "Pillow==12.2.0",
+  "pyside6==6.11.0",
+  "pyside6_addons==6.11.0",
+  "pyside6_essentials==6.11.0",
+  "pytesseract==0.3.13"
+]
+
+[tool.setuptools]
+package-dir = {"" = ""}

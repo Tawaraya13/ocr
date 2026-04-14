@@ -26,4 +26,4 @@ dependencies = [
 packages = ["screenshot","system"]
 
 [project.scripts]
-manga-ocr-gui = "Manga_OCR_GUI.main:main"
+manga-ocr-gui = "manga_ocr_gui.main:main"

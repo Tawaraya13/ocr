@@ -20,7 +20,8 @@ dependencies = [
   "pyside6==6.11.0",
   "pyside6_addons==6.11.0",
   "pyside6_essentials==6.11.0",
-  "pytesseract==0.3.13"
+  "pytesseract==0.3.13",
+  "furigana @ git+https://github.com/Tawaraya13/furigana.git"
 ]
 
 [tool.setuptools]

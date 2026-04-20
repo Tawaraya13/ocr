@@ -42,7 +42,6 @@ class main_window(QMainWindow):
         self._window_position = QPoint(0,0)   
          
         
-
         toolbar = QToolBar("Main Toolbar") 
         self.addToolBar(Qt.TopToolBarArea, toolbar)
 

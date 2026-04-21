@@ -1,10 +1,10 @@
 import sys
 from PySide6.QtCore import Qt, QPoint, QRect, QTimer, QBuffer, QIODevice
-from PySide6.QtGui import QAction, QGuiApplication, QActionGroup
+from PySide6.QtGui import QAction, QGuiApplication, QActionGroup, QShortcut, QKeySequence
 from PySide6.QtWidgets import QApplication,QLabel,QMainWindow,QVBoxLayout,QWidget,QMenu,QToolBar 
 from PySide6.QtWebEngineWidgets import QWebEngineView
 import os
-from manga_ocr import MangaOcr
+#from manga_ocr import MangaOcr
 import screenshot
 import time
 import logging
@@ -15,8 +15,8 @@ import io
 from deep_translator import GoogleTranslator
 from furigana.furigana import return_html
 import pytesseract
-from huggingface_hub import InferenceClient
-from transformers import pipeline
+#from huggingface_hub import InferenceClient
+#from transformers import pipeline
 
 
 logger = logging.getLogger(__name__)
@@ -60,6 +60,9 @@ class main_window(QMainWindow):
 
         toolbar.addAction(furigana_action)
 
+        ss_shortcut = QShortcut(QKeySequence("Ctrl+P"), self)
+        ss_shortcut.activated.connect(self.on_ss_shortcut_activate)
+
         #option menu
         self.pytesseract_action = QAction("OCR Pytesseract", self)
         self.pytesseract_action.setCheckable(True)
@@ -95,6 +98,22 @@ class main_window(QMainWindow):
     def set_ocr_selection(self, action):
         self.ocrselector = action.data()
         print("Selected value:", self.ocrselector)
+
+    def on_ss_shortcut_activate(self):
+        self.hide() #hide window before teking screenshot
+        self.selection_state = {'begin': None, 'end': None, 'active': False}
+        screenshot_img = self._take_screenshots(True)
+        if not screenshot_img:
+            print("Screenshot failed")
+            return
+        for screen, screenshot_img in zip(QGuiApplication.screens(),screenshot_img):
+            overlay = CaptureOverlay(self,screenshot_img)
+            overlay.show()  
+            handle = overlay.windowHandle()
+            if handle:
+                handle.setScreen(screen)
+            overlay.showMaximized()
+            self.capture_overlays.append(overlay)
 
     def on_furigana_clicked(self, e):
         html_text = return_html(self.ocrtext)

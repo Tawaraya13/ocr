@@ -6,15 +6,16 @@ Small PySide6 GUI that captures a screen region and runs OCR (pytesseract or man
 Quick setup
 -----------
 
-1. Create and activate a Python virtual environment (optional).
-2. Install Python packages:
-   pip install -r requirements.txt
-3. Run the GUI:
-   python mainwindow.py
-   
-Alternatively install through github
+1. Downloaad the file
+2. Install mecab and choose UTF-8 https://github.com/ikegami-yukino/mecab/releases/download/v0.996.2/mecab-64-0.996.2.exe
+3. Add mecab directory to PATH
+4. Install Latest VC Redist https://learn.microsoft.com/id-id/cpp/windows/latest-supported-vc-redist?view=msvc-170
+5. Download Tesseract and install the language needed https://docs.coro.net/featured/agent/install-tesseract-windows
+6. Add Tesseract directory to PATH
+7. Download Unidic to translate to furigana python -m unidic download
 
-pip install git+https://github.com/Tawaraya13/ocr.git
+mecab instalation guide
+https://github.com/mcho421/noj/blob/master/installing-mecab-python.md
 
 Repository layout
 -----------------

@@ -13,6 +13,7 @@ Quick setup
 5. Download Tesseract and install the language needed https://docs.coro.net/featured/agent/install-tesseract-windows
 6. Add Tesseract directory to PATH
 7. Download Unidic to translate to furigana python -m unidic download
+8. Extract and run the EXE
 
 mecab instalation guide
 https://github.com/mcho421/noj/blob/master/installing-mecab-python.md

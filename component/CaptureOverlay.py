@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QWidget
-from PySide6.QtGui import QPainter, QColor, QPixmap, QGuiApplication
+from PySide6.QtGui import QPainter, QColor
 from PySide6.QtCore import Qt, QRect
 
 
@@ -12,19 +12,16 @@ class CaptureOverlay(QWidget):
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setCursor(Qt.CrossCursor)
         self.setMouseTracking(True)
-        #screen = QGuiApplication.screenAt(self.screenshot.rect().center())
-        #self.setGeometry(screen.geometry())
-        #self.show()
+
         
 
     def paintEvent(self, event):
         #selection coord stored in the global coord of the main window
-        screen_rect = self.geometry()
         painter = QPainter(self)
         painter.drawImage(
-            self.rect(),
-            self.screenshot,
-            screen_rect
+            0,
+            0,
+            self.screenshot
         )
         state = self.main_window.selection_state
         if not state ['active']:
@@ -49,9 +46,6 @@ class CaptureOverlay(QWidget):
                 self.screenshot,
                 local_reveal_rect.translated(self.geometry().topLeft())
             )
-            # painter.setCompositionMode(QPainter.CompositionMode_Clear)
-            # painter.fillRect(local_reveal_rect, Qt.transparent)
-            # painter.setCompositionMode(QPainter.CompositionMode_SourceOver)
         painter.end()
 
     def mousePressEvent(self, event):

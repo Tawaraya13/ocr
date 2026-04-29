@@ -43,3 +43,6 @@ htmlcov/
 Dockerfile
 .dockerignore
 *.tar
+
+#secret
+apikey.txt

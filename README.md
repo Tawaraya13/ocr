@@ -1,4 +1,4 @@
-Japan OCR\
+Japan OCR
 ===============
 
 Small PySide6 GUI that captures a screen region and runs OCR (pytesseract or manga_ocr) and optional translation/furigana.
